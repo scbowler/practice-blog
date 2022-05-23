@@ -21,12 +21,14 @@ function ViewPosts() {
   const deletePost = async () => {
     await blog.deletePost(postToDelete.id);
     
-    const posts = await blog.getPosts();
+    const updatedPosts = [...posts];
+    const index = updatedPosts.findIndex(p => p.id === postToDelete.id);
+    updatedPosts.splice(index, 1);
 
-    setPosts(posts);
+    setPosts(updatedPosts);
     setPostToDelete(null);
   }
-
+  
   return (
     <div className="container">
       <Title>All Posts</Title>
