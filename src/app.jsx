@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AddPost from './pages/add-post';
+import EditPost from './pages/edit-post';
 import Nav from './components/nav'
 import ViewPosts from './pages/view-posts';
 
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/add-post">
           <AddPost />
+        </Route>
+        <Route path="/edit-post/:id">
+          <EditPost />
         </Route>
       </Switch>
     </div>

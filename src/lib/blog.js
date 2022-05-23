@@ -10,6 +10,12 @@ class Blog {
     return data.response;
   }
 
+  async getPost(id) {
+    const { data } = await axios.get(`${this.baseUrl}/${id}`);
+
+    return data.response;
+  }
+
   async addPost(post) {
     const { data } = await axios.post(this.baseUrl, post);
 
@@ -18,6 +24,12 @@ class Blog {
 
   async deletePost(id) {
     const { data } = await axios.delete(`${this.baseUrl}/${id}`);
+
+    return data.response;
+  }
+
+  async updatePost(post, id) {
+    const { data } = await axios.put(`${this.baseUrl}/${id}`, post);
 
     return data.response;
   }
